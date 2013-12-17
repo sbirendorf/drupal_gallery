@@ -1,0 +1,16 @@
+This repo Create a cool image gallery, and creating a cool block gallery
+
+First, you need to download fancybox.zip. 
+
+Go to themes/bartik/ and create new folder "js", extract jquery.mousewheel-3.0.6.pack.js and source folder here. Change source to fancybox Next, you need to add fancybox to Bartik theme. 
+Open template.php 
+find function bartik_process_page(&$variables) { and insert:
+
+drupal_add_js(drupal_get_path('theme', 'bartik') . '/js/jquery.mousewheel-3.0.6.pack.js'); 
+drupal_add_js(drupal_get_path('theme', 'bartik') . '/js/fancybox/jquery.fancybox.pack.js'); 
+drupal_add_css(drupal_get_path('theme', 'bartik') . '/js/fancybox/jquery.fancybox.css'); 
+$fancybox = "jQuery(document).ready(function() { jQuery('.fancybox').fancybox(); });"; drupal_add_js($fancybox, 'inline');
+
+Now you have a gallery page with thumbnail link to original image file. 
+In this step, I'm going to add some effects (inspire from Google+). 
+Go into the theme css directory (themes/bartik/css/) and open style.css, add the css code to it (look for the css code in this repository )
